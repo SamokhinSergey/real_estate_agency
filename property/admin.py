@@ -1,5 +1,5 @@
 from django.contrib import admin
-
+from django.contrib.auth.models import User
 from .models import Flat
 from .models import Complaint
 
@@ -28,6 +28,9 @@ class FlatAdmin(admin.ModelAdmin):
         'new_building',
         'rooms_number',
         'has_balcony',
+    )
+    raw_id_fields = (
+        'liked_by',
     )
 
 
