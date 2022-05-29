@@ -4,7 +4,16 @@ from .models import Complaint
 from .models import Owner
 
 
+class OwnerInline(admin.TabularInline):
+    model = Owner.flats_own.through
+    raw_id_fields = (
+        'owner',
+        'flat',
+    )
+
+
 class FlatAdmin(admin.ModelAdmin):
+    inlines = [OwnerInline]
     search_fields = (
         'town',
         'address',
