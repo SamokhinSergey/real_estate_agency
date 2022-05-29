@@ -14,7 +14,6 @@ def add_owner(apps, schema_editor):
             defaults={
                 'owner': flat.owner,
                 'owner_pure_phone': flat.owner_pure_phone
-
             }
         )
         owner.flats_own.add(flat)
