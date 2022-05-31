@@ -116,4 +116,4 @@ class Owner(models.Model):
     )
 
     def __str__(self):
-        return f'{self.owner}, {self.owners_phonenumber} '
+        return f'{self.owner}, {self.pure_phone} '

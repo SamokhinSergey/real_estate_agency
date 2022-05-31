@@ -2,21 +2,19 @@
 
 from django.db import migrations
 
-from property.models import Owner
-
 
 def add_owner(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
     Owner = apps.get_model('property', 'Owner')
     for flat in Flat.objects.all().iterator():
         owner, _ = Owner.objects.get_or_create(
-            owners_phonenumber=flat.owners_phonenumber,
+            phone=flat.owners_phonenumber,
             defaults={
                 'owner': flat.owner,
                 'pure_phone': flat.owner_pure_phone
             }
         )
-        owner.flats_own.add(flat)
+        owner.flats.add(flat)
         owner.save()
 
 
