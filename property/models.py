@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 
 class Flat(models.Model):
+
     new_building = models.BooleanField(
         'Новостройка',
         blank=True,
@@ -116,4 +117,4 @@ class Owner(models.Model):
     )
 
     def __str__(self):
-        return f'{self.owner}, {self.pure_phone} '
+        return f'{self.owner}, {self.pure_phone}'
