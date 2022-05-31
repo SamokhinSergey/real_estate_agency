@@ -76,11 +76,15 @@ class Flat(models.Model):
 class Complaint(models.Model):
     user = models.ForeignKey(
         User,
+        related_name='complaints',
+        verbose_name='Жалоба от пользователя',
         on_delete=models.SET_NULL,
         null=True,
     )
     flat = models.ForeignKey(
         Flat,
+        related_name='complaints',
+        verbose_name='Жалоба на квартиру',
         on_delete=models.SET_NULL,
         null=True,
     )
@@ -103,13 +107,14 @@ class Owner(models.Model):
         max_length=20
     )
     owner_pure_phone = PhoneNumberField(
-        blank=True
+        'Телефон в правильном формате',
+        blank=True,
     )
     flats_own = models.ManyToManyField(
         Flat,
-        blank=True,
         related_name='owner_flat',
         verbose_name='Квартиры в собственности',
+        blank=True,
     )
 
     def __str__(self):
