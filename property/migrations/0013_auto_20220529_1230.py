@@ -16,11 +16,11 @@ class Migration(migrations.Migration):
         ),
         migrations.RemoveField(
             model_name='flat',
-            name='owner_pure_phone',
+            name='pure_phone',
         ),
         migrations.RemoveField(
             model_name='flat',
-            name='owners_phonenumber',
+            name='phone',
         ),
         migrations.AlterField(
             model_name='owner',
